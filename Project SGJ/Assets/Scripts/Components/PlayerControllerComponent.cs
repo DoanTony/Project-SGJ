@@ -17,5 +17,6 @@ public class PlayerControllerComponent : MonoBehaviour {
 
     #region Hidden Public Data From Inspector
     [HideInInspector] public bool isMoving;
+    [HideInInspector] public bool isDashing;
     #endregion
 }
