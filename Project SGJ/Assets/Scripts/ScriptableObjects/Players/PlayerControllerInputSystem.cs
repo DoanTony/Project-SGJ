@@ -19,6 +19,15 @@ public class PlayerControllerInputSystem : ComponentSystem
         {
             PlayerControllerComponent controller = _Controllers.PlayerControllerComponent[i];
             MoveInputs(controller);
+            DashInputs(controller);
+        }
+    }
+
+    private void DashInputs(PlayerControllerComponent _controller)
+    {
+        if (Input.GetButtonDown("Dash"))
+        {
+            _controller.isDashing = true;
         }
     }
 
@@ -33,4 +42,6 @@ public class PlayerControllerInputSystem : ComponentSystem
             _controller.isMoving = false;
         }
     }
+
+    
 }

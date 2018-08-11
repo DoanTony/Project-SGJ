@@ -24,8 +24,21 @@ public class PlayerControllerSystem : ComponentSystem {
                 _Controllers.PlayerControllerComponent[i], 
                 _Controllers.Transform[i],
                 _Controllers.Rigidbody[i]);
-
             Move(controllerModel);
+            Dash(controllerModel);
+        }
+    }
+
+    private void Dash(PlayerControllerModel _controllerModel)
+    {
+        if (_controllerModel.Component.isDashing && !_controllerModel.Component.isDashOnCooldown)
+        {
+           _controllerModel.Rigidbody.velocity *= _controllerModel.Component.controller.dashForce;
+           _controllerModel.Component.isDashOnCooldown = true;
+        }
+        else if (_controllerModel.Component.isDashOnCooldown)
+        {
+            _controllerModel.Component.CooldownDashReset();
         }
     }
 
@@ -35,8 +48,9 @@ public class PlayerControllerSystem : ComponentSystem {
         float xMovement = Input.GetAxis("Horizontal") * controller.movementSpeed * Time.deltaTime;
         float yMovement = Input.GetAxis("Vertical") * controller.movementSpeed * Time.deltaTime;
         Vector2 movements = new Vector2(xMovement, yMovement);
-        _controllerModel.Rigidbody.AddForce(movements,ForceMode2D.Impulse);
+        _controllerModel.Rigidbody.AddForce(movements, ForceMode2D.Impulse);
     }
+
 }
 
 #region PlayerControllerModel
@@ -46,12 +60,14 @@ struct PlayerControllerModel
     public PlayerControllerComponent Component;
     public Transform Transform;
     public Rigidbody2D Rigidbody;
+    public float DashTimer;
 
     public PlayerControllerModel(PlayerControllerComponent _component, Transform _transform, Rigidbody2D _rigidbody)
     {
         Component = _component;
         Transform = _transform;
         Rigidbody = _rigidbody;
+        DashTimer = 0f;
     }
 }
 

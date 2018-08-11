@@ -132,6 +132,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 11400000, guid: b8f9715447013e840bbe48724431f6e1, type: 2}
   isMoving: 0
+  isDashing: 0
+  isDashOnCooldown: 0
 --- !u!212 &212670209559273824
 SpriteRenderer:
   m_ObjectHideFlags: 1
