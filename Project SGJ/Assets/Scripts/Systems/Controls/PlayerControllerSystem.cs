@@ -33,20 +33,24 @@ public class PlayerControllerSystem : ComponentSystem {
     {
         if (_controllerModel.Component.isDashing && !_controllerModel.Component.isDashOnCooldown)
         {
-           _controllerModel.Rigidbody.velocity *= _controllerModel.Component.controller.dashForce;
+          _controllerModel.Component.dashDrag = _controllerModel.Component.controller.dashDrag;
+          Vector2 dashDirection = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+           _controllerModel.Rigidbody.velocity += dashDirection * _controllerModel.Component.controller.dashForce;
            _controllerModel.Component.isDashOnCooldown = true;
         }
-        else if (_controllerModel.Component.isDashOnCooldown)
+        else if (_controllerModel.Component.isDashing && _controllerModel.Component.isDashOnCooldown)
         {
             _controllerModel.Component.CooldownDashReset();
         }
+        _controllerModel.Rigidbody.drag = _controllerModel.Component.dashDrag;
+
     }
 
     private void Move(PlayerControllerModel _controllerModel)
     {
         PlayerControllerObject controller = _controllerModel.Component.controller;
-        float xMovement = Input.GetAxis("Horizontal") * controller.movementSpeed * Time.deltaTime;
-        float yMovement = Input.GetAxis("Vertical") * controller.movementSpeed * Time.deltaTime;
+        float xMovement = Input.GetAxisRaw("Horizontal") * controller.movementSpeed * Time.deltaTime;
+        float yMovement = Input.GetAxisRaw("Vertical") * controller.movementSpeed * Time.deltaTime;
         Vector2 movements = new Vector2(xMovement, yMovement);
         _controllerModel.Rigidbody.AddForce(movements, ForceMode2D.Impulse);
     }

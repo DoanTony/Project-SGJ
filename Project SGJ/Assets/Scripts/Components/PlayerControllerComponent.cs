@@ -19,6 +19,7 @@ public class PlayerControllerComponent : MonoBehaviour {
     [HideInInspector] public bool isMoving;
     [HideInInspector] public bool isDashing;
     [HideInInspector] public bool isDashOnCooldown;
+    [HideInInspector] public float dashDrag = 1f;
     #endregion
 
     public void CooldownDashReset()
@@ -26,8 +27,15 @@ public class PlayerControllerComponent : MonoBehaviour {
         if (isDashOnCooldown && isDashing)
         {
             StartCoroutine(DelayDashReset());
+            StartCoroutine(DelayResetDashDrag());
             isDashing = false;
         }
+    }
+
+    private IEnumerator DelayResetDashDrag()
+    {
+        yield return new WaitForSeconds(controller.dashDragTimer);
+        dashDrag = 1f;
     }
 
     private IEnumerator DelayDashReset()

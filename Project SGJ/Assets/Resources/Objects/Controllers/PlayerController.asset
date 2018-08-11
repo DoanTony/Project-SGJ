@@ -11,4 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0f074c71c05e414f88f8fafce5a1ae4, type: 3}
   m_Name: PlayerController
   m_EditorClassIdentifier: 
-  movementSpeed: 1
+  movementSpeed: 5
+  dashForce: 20
+  dashCooldownTimer: 1
+  dashDrag: 5
+  dashDragTimer: 0.3
