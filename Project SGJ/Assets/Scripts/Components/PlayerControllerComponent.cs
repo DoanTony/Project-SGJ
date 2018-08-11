@@ -17,8 +17,8 @@ public class PlayerControllerComponent : MonoBehaviour {
 
     #region Hidden Public Data From Inspector
     [HideInInspector] public bool isMoving;
-     public bool isDashing;
-     public bool isDashOnCooldown;
+    [HideInInspector] public bool isDashing;
+    [HideInInspector] public bool isDashOnCooldown;
     #endregion
 
     public void CooldownDashReset()
