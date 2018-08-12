@@ -11,6 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f455ba1b38134d43a088642752a6a7f, type: 3}
   m_Name: USA_Character
   m_EditorClassIdentifier: 
-  characterPrefab: {fileID: 0}
+  characterPrefab: {fileID: 1467259862644474, guid: 3e09adcefed59494b960dc98b3b162b5,
+    type: 2}
   transmiterPrefab: {fileID: 1044654385856836, guid: a420361216fdcc9489d28bcb256977ac,
     type: 2}
