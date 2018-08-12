@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 236f84b211464574386cd57264e9a50c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerObject: {fileID: 11400000, guid: b6462fc95e3df754a9802cb8e8ca3342, type: 2}
+  playerObject: {fileID: 11400000, guid: 575b2c5f959c6dd45909e7ee4d98a9cc, type: 2}
   transporter: {fileID: 212740635066940208}
   hasTransporter: 0
   selfCollision: {fileID: 58016835930218270}
