@@ -9,10 +9,19 @@ public class CharacterComponent : MonoBehaviour
     private PlayerControllerComponent pcc;
     [SerializeField] Collider2D selfCollision;
     [HideInInspector] public bool isStunSteal = false;
+    [HideInInspector] public Animator animator;
+    [HideInInspector] public SpriteRenderer characterSprite;
+    [HideInInspector] public ParticleSystem dashParticles;
 
     private void Start()
     {
         pcc = GetComponent<PlayerControllerComponent>();
+        GameObject character = Instantiate(playerObject.selectedCharacter.characterPrefab, this.transform);
+        animator = character.GetComponent<Animator>();
+        characterSprite = character.GetComponent<SpriteRenderer>();
+        GameObject particle = Instantiate(playerObject.selectedCharacter.particle.gameObject, this.transform);
+        dashParticles = particle.GetComponent<ParticleSystem>();
+        dashParticles.Stop();
     }
 
   

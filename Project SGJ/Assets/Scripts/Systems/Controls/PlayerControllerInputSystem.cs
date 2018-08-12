@@ -9,6 +9,7 @@ public class PlayerControllerInputSystem : ComponentSystem
     {
         public readonly int Length;
         public ComponentArray<PlayerControllerComponent> PlayerControllerComponent;
+        public ComponentArray<CharacterComponent> CharacterComponent;
     }
 
     [Inject] Controllers _Controllers;
@@ -18,17 +19,19 @@ public class PlayerControllerInputSystem : ComponentSystem
         for (int i = 0; i < _Controllers.Length; i++)
         {
             PlayerControllerComponent controller = _Controllers.PlayerControllerComponent[i];
+            CharacterComponent character = _Controllers.CharacterComponent[i]; ;
             MoveInputs(controller);
-            DashInputs(controller); 
+            DashInputs(controller, character); 
         }
     }
 
-    private void DashInputs(PlayerControllerComponent _controller)
+    private void DashInputs(PlayerControllerComponent _controller, CharacterComponent _character)
     {
         if ((Input.GetButtonDown(_controller.controller.dash) || Input.GetButtonDown(_controller.controller.dashJoyStick)) && !_controller.isStun && !_controller.isReverseDash)
         {
             _controller.isDashing = true;
-            Debug.Log( _controller.isDashing);
+            _character.animator.SetTrigger("Dash");
+            _character.dashParticles.Play();
         }
     }
 

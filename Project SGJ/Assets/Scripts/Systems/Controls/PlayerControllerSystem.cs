@@ -7,6 +7,7 @@ public class PlayerControllerSystem : ComponentSystem {
     {
         public readonly int Length;
         public ComponentArray<PlayerControllerComponent> PlayerControllerComponent;
+        public ComponentArray<CharacterComponent> CharacterComponent;
         public ComponentArray <Rigidbody2D> Rigidbody;
         public ComponentArray<Transform> Transform;
     }
@@ -19,6 +20,7 @@ public class PlayerControllerSystem : ComponentSystem {
         {
             PlayerControllerModel controllerModel = new PlayerControllerModel(
                 _Controllers.PlayerControllerComponent[i], 
+                _Controllers.CharacterComponent[i], 
                 _Controllers.Transform[i],
                 _Controllers.Rigidbody[i]);
             Move(controllerModel);
@@ -108,11 +110,27 @@ public class PlayerControllerSystem : ComponentSystem {
         {
             xAxis = Input.GetAxisRaw(horizontalAxe) * controller.movementSpeed * Time.deltaTime;
             yAxis = Input.GetAxisRaw(verticalAxe) * controller.movementSpeed * Time.deltaTime;
+            if(Input.GetAxisRaw(horizontalAxe) < 0)
+            {
+                _controllerModel.CharacterComponent.characterSprite.flipX = true;
+            }
+            else
+            {
+                _controllerModel.CharacterComponent.characterSprite.flipX = false;
+            }
         }
         else if (Mathf.Round(Input.GetAxisRaw(horizontalAxeJoystick)) != 0 || Mathf.Round(Input.GetAxisRaw(verticalAxeJoystick)) != 0)
         {
             xAxis = Input.GetAxisRaw(horizontalAxeJoystick) * controller.movementSpeed * Time.deltaTime;
             yAxis = Input.GetAxisRaw(verticalAxeJoystick) * controller.movementSpeed * Time.deltaTime;
+            if (Input.GetAxisRaw(horizontalAxeJoystick) < 0)
+            {
+                _controllerModel.CharacterComponent.characterSprite.flipX = true;
+            }
+            else
+            {
+                _controllerModel.CharacterComponent.characterSprite.flipX = false;
+            }
         }
        
         Vector2 movements = new Vector2(xAxis, yAxis);
@@ -130,13 +148,15 @@ public class PlayerControllerSystem : ComponentSystem {
 struct PlayerControllerModel
 {
     public PlayerControllerComponent Component;
+    public CharacterComponent CharacterComponent;
     public Transform Transform;
     public Rigidbody2D Rigidbody;
     public float DashTimer;
 
-    public PlayerControllerModel(PlayerControllerComponent _component, Transform _transform, Rigidbody2D _rigidbody)
+    public PlayerControllerModel(PlayerControllerComponent _component, CharacterComponent  _characterComponent ,Transform _transform, Rigidbody2D _rigidbody)
     {
         Component = _component;
+        CharacterComponent = _characterComponent;
         Transform = _transform;
         Rigidbody = _rigidbody;
         DashTimer = 0f;

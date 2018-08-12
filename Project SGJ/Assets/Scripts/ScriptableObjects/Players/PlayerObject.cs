@@ -10,4 +10,5 @@ public class PlayerObject : ScriptableObject
     {
         selectedCharacter = _character;
     }
+
 }

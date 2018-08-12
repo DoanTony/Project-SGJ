@@ -6,5 +6,5 @@ public class CharacterObject : ScriptableObject
 {
     public GameObject characterPrefab;
     public GameObject transmiterPrefab;
-
+    public ParticleSystem particle;
 }

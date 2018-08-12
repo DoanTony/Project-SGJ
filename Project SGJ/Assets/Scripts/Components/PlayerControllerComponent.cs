@@ -30,10 +30,12 @@ public class PlayerControllerComponent : MonoBehaviour {
     #endregion
 
     private Rigidbody2D rb;
+    private CharacterComponent character;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        character = GetComponent<CharacterComponent>();
     }
 
     public void SetPreviousVelocity()
@@ -64,5 +66,6 @@ public class PlayerControllerComponent : MonoBehaviour {
         yield return new WaitForSeconds(controllerProps.dashCooldownTimer);
         isDashOnCooldown = false;
         isDashing = false;
+        character.dashParticles.Stop();
     }
 }
