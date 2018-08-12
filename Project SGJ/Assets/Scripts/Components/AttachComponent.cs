@@ -6,16 +6,6 @@ public class AttachComponent : MonoBehaviour
     private Rigidbody2D rb;
     private bool canPickUp;
 
-    private void Awake()
-    {
-        GameObject[] cols = GameObject.FindGameObjectsWithTag("Player");
-        foreach (GameObject player in cols)
-        {
-            Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), this.GetComponent<Collider2D>());
-
-        }
-    }
-
     private void Start()
     {
         canPickUp = false;

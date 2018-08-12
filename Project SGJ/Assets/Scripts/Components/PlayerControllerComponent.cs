@@ -20,12 +20,12 @@ public class PlayerControllerComponent : MonoBehaviour {
     [HideInInspector] public float yAxis;
     [HideInInspector] public bool dash;
     [HideInInspector] public bool isMoving;
-    public bool isDashing;
-    public bool isReverseDash;
-    public bool isStun;
-    public bool isDashOnCooldown;
-    public Vector2 previousVelocityDir = Vector2.zero;
-    public Vector2 currentVelocityDir = Vector2.zero;
+    [HideInInspector] public bool isDashing;
+    [HideInInspector] public bool isReverseDash;
+    [HideInInspector] public bool isStun;
+    [HideInInspector] public bool isDashOnCooldown;
+    [HideInInspector] public Vector2 previousVelocityDir = Vector2.zero;
+    [HideInInspector] public Vector2 currentVelocityDir = Vector2.zero;
     [HideInInspector] public float dashDrag = 1f;
     #endregion
 

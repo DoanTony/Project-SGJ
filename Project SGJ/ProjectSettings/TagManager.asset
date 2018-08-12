@@ -7,6 +7,7 @@ TagManager:
   - Transmiter
   - Obstacle
   - PlayerTrigger
+  - Transporter
   layers:
   - Default
   - TransparentFX

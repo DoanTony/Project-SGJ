@@ -46,7 +46,7 @@ public class PlayerControllerSystem : ComponentSystem {
             _controllerModel.Component.isDashOnCooldown = false;
         }
 
-        if (_controllerModel.Component.isDashing && !_controllerModel.Component.isDashOnCooldown)
+        if ((_controllerModel.Component.isDashing && !_controllerModel.Component.isDashOnCooldown))
         {
             if (!_controllerModel.Component.isReverseDash)
             {
@@ -69,6 +69,17 @@ public class PlayerControllerSystem : ComponentSystem {
          
             _controllerModel.Rigidbody.velocity += dashDirection * _controllerModel.Component.controllerProps.dashForce;
             _controllerModel.Component.CooldownDashReset();
+        }
+        else if(_controllerModel.Component.isReverseDash && !_controllerModel.Component.isStun)
+        {
+            xAxisTemp = _controllerModel.Component.previousVelocityDir.x;
+            yAxisTemp = _controllerModel.Component.previousVelocityDir.y;
+            xAxisTemp *= -1;
+            yAxisTemp *= -1;
+            _controllerModel.Component.dashDrag = _controllerModel.Component.controllerProps.dashDrag;
+            Vector2 dashDirection = new Vector3(xAxis + xAxisTemp, yAxis + yAxisTemp);
+
+            _controllerModel.Rigidbody.velocity += dashDirection * _controllerModel.Component.controllerProps.dashForce;
         }
         _controllerModel.Rigidbody.drag = _controllerModel.Component.dashDrag;
 

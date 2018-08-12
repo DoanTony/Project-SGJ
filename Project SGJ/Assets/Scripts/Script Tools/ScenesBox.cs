@@ -1,19 +1,17 @@
-﻿using System.Collections;
+﻿#if UNITY_EDITOR
 using System.Collections.Generic;
-using UnityEditor;
-using UnityEditor.SceneManagement;
-using UnityEngine.SceneManagement;
 using UnityEngine;
 
+using UnityEditor.SceneManagement;
+using UnityEditor;
 [ExecuteInEditMode]
 public class ScenesBox : MonoBehaviour {
     public List<SceneAsset> scenes = new List<SceneAsset>();
-
     private void Awake()
     {
         LoadScenes();
-        StartCoroutine(Execute());
     }
+
 
     private void OnValidate()
     {
@@ -33,12 +31,6 @@ public class ScenesBox : MonoBehaviour {
                 EditorSceneManager.OpenScene(AssetDatabase.GetAssetPath(scene), OpenSceneMode.Additive);
             }
         }
-
-    }
-
-    public IEnumerator Execute()
-    {
-        EditorSceneManager.preventCrossSceneReferences = false;
-        yield break;
     }
 }
+#endif

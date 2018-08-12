@@ -25,7 +25,7 @@ public class PlayerControllerInputSystem : ComponentSystem
 
     private void DashInputs(PlayerControllerComponent _controller)
     {
-        if (Input.GetButtonDown(_controller.controller.dash) && !_controller.isStun)
+        if (Input.GetButtonDown(_controller.controller.dash) && !_controller.isStun && !_controller.isReverseDash)
         {
             _controller.isDashing = true;
         }

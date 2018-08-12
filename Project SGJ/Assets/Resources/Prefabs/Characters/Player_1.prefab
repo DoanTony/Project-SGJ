@@ -152,7 +152,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &58529921221479016
 CircleCollider2D:
@@ -168,7 +168,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.31
+  m_Radius: 0.4
 --- !u!58 &58580307739834296
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -183,7 +183,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.31
+  m_Radius: 0.5
 --- !u!114 &114015942524166848
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -209,6 +209,8 @@ MonoBehaviour:
   characterObject: {fileID: 11400000, guid: 350e4a9560753f546a7a7bff7123c79c, type: 2}
   transporter: {fileID: 212814297171772208}
   hasTransporter: 0
+  selfCollision: {fileID: 58529921221479016}
+  isStunSteal: 1
 --- !u!114 &114340737775005370
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -227,7 +229,11 @@ MonoBehaviour:
   dash: 0
   isMoving: 0
   isDashing: 0
+  isReverseDash: 0
+  isStun: 0
   isDashOnCooldown: 0
+  previousVelocityDir: {x: 0, y: 0}
+  currentVelocityDir: {x: 0, y: 0}
   dashDrag: 1
 --- !u!212 &212670209559273824
 SpriteRenderer:
