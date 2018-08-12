@@ -5,7 +5,7 @@ public class CharacterComponent : MonoBehaviour
 {
     public CharacterObject characterObject;
     public SpriteRenderer transporter;
-    public bool hasTransporter;
+    [HideInInspector] public bool hasTransporter;
     private PlayerControllerComponent pcc;
     [SerializeField] Collider2D selfCollision;
     [HideInInspector] public bool isStunSteal = false;

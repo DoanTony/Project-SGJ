@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 114015942524166848}
   - component: {fileID: 58529921221479016}
   m_Layer: 10
-  m_Name: Player_1
+  m_Name: China
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 236f84b211464574386cd57264e9a50c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterObject: {fileID: 0}
+  characterObject: {fileID: 11400000, guid: 9b0ecf1136e34ee4f9721ffc890c405f, type: 2}
   transporter: {fileID: 212814297171772208}
   hasTransporter: 0
   selfCollision: {fileID: 58529921221479016}
