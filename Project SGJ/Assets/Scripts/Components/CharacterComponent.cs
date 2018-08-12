@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CharacterComponent : MonoBehaviour
 {
-    public CharacterObject characterObject;
+    public PlayerObject playerObject;
     public SpriteRenderer transporter;
     [HideInInspector] public bool hasTransporter;
     private PlayerControllerComponent pcc;
@@ -91,7 +91,7 @@ public class CharacterComponent : MonoBehaviour
 
     private void DropTransporter()
     {
-        Instantiate(characterObject.transmiterPrefab, this.transform.position, Quaternion.Euler(Vector3.zero));
+        Instantiate(playerObject.selectedCharacter.transmiterPrefab, this.transform.position, Quaternion.Euler(Vector3.zero));
         hasTransporter = false;
     }
 
