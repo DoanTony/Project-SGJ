@@ -6,12 +6,20 @@ public class AttachComponent : MonoBehaviour
     private Rigidbody2D rb;
     private bool canPickUp;
 
+    private void Awake()
+    {
+        GameObject[] cols = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject player in cols)
+        {
+            Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), this.GetComponent<Collider2D>());
+
+        }
+    }
+
     private void Start()
     {
         canPickUp = false;
         rb = transform.GetComponent<Rigidbody2D>();
-        Collider2D col = GameObject.FindGameObjectWithTag("Player").GetComponent<Collider2D>();
-        Physics2D.IgnoreCollision(col, this.GetComponent<Collider2D>());
         StartCoroutine(DelayPickUp());
     }
 
@@ -29,7 +37,7 @@ public class AttachComponent : MonoBehaviour
 
     private IEnumerator DelayPickUp()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
         canPickUp = true;
     }
 }

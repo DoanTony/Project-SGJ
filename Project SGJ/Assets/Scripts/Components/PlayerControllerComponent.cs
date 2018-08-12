@@ -20,10 +20,26 @@ public class PlayerControllerComponent : MonoBehaviour {
     [HideInInspector] public float yAxis;
     [HideInInspector] public bool dash;
     [HideInInspector] public bool isMoving;
-    [HideInInspector] public bool isDashing;
-    [HideInInspector] public bool isDashOnCooldown;
+    public bool isDashing;
+    public bool isReverseDash;
+    public bool isStun;
+    public bool isDashOnCooldown;
+    public Vector2 previousVelocityDir = Vector2.zero;
+    public Vector2 currentVelocityDir = Vector2.zero;
     [HideInInspector] public float dashDrag = 1f;
     #endregion
+
+    private Rigidbody2D rb;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+    public void SetPreviousVelocity()
+    {
+        previousVelocityDir = rb.velocity.normalized;
+    }
 
     public void CooldownDashReset()
     {
@@ -32,6 +48,8 @@ public class PlayerControllerComponent : MonoBehaviour {
             StartCoroutine(DelayDashReset());
             StartCoroutine(DelayResetDashDrag());
             isDashOnCooldown = true;
+            isStun = false;
+            isReverseDash = false;
         }
     }
 

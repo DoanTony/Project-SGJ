@@ -19,7 +19,7 @@ public class FloatingComponent : MonoBehaviour {
 
    private void Launch()
     {
-        Vector2 launchDirection = new Vector2(Random.Range(-5, 5), Random.Range(-5, 5));
+        Vector2 launchDirection = new Vector2(Random.Range(4, 6) * (Random.Range(-1,1) *2 -1), Random.Range(4, 6) * (Random.Range(-1, 1) * 2 - 1));
         rb.AddForce(launchDirection, ForceMode2D.Impulse);
     }
 }
