@@ -25,7 +25,7 @@ public class PlayerControllerInputSystem : ComponentSystem
 
     private void DashInputs(PlayerControllerComponent _controller)
     {
-        if (Input.GetButtonDown("Dash"))
+        if (Input.GetButtonDown(_controller.controller.dash))
         {
             _controller.isDashing = true;
         }
@@ -33,7 +33,9 @@ public class PlayerControllerInputSystem : ComponentSystem
 
     private void MoveInputs(PlayerControllerComponent _controller)
     {
-        if (Input.GetAxisRaw("Horizontal") > 0 || Input.GetAxisRaw("Vertical") > 0)
+        string horizontalAxe = _controller.controller.horizontalAxe;
+        string verticalAxe = _controller.controller.verticalAxe;
+        if (Input.GetAxisRaw(horizontalAxe) > 0 || Input.GetAxisRaw(verticalAxe) > 0)
         {
             _controller.isMoving = true;
         }
