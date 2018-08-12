@@ -34,9 +34,7 @@ public class PlayerControllerInputSystem : ComponentSystem
 
     private void MoveInputs(PlayerControllerComponent _controller)
     {
-        Debug.Log(Input.GetAxisRaw(_controller.controller.horizontalAxeJoystick));
-
-        if (Input.GetAxisRaw(_controller.controller.horizontalAxe) != 0 ||
+            if (Input.GetAxisRaw(_controller.controller.horizontalAxe) != 0 ||
             Mathf.Round(Input.GetAxisRaw(_controller.controller.horizontalAxeJoystick)) != 0 || 
             Input.GetAxisRaw(_controller.controller.verticalAxe) != 0 ||
             Mathf.Round(Input.GetAxisRaw(_controller.controller.verticalAxeJoystick)) != 0 )

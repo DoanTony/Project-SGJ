@@ -1,9 +1,13 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
-[CreateAssetMenu(menuName = "Character", order = 0)]
-public class CharacterObject : ScriptableObject
+[CreateAssetMenu(menuName = "Player", order = 0)]
+public class PlayerObject : ScriptableObject
 {
-    public GameObject transmiterPrefab;
+    public CharacterObject selectedCharacter;
 
+    public void SetCharacter(CharacterObject _character)
+    {
+        selectedCharacter = _character;
+    }
 }

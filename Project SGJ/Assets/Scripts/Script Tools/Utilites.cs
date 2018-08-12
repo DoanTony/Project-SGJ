@@ -6,4 +6,5 @@ public static class Utilites
     {
         return Random.Range(val1, val2);
     }
+
 }
