@@ -18,6 +18,7 @@ public class PlayerControllerObject : ScriptableObject
     public string verticalAxe;
     public string verticalAxeJoystick;
     public string dash;
+    public string dashJoyStick;
 
     private void OnEnable()
     {
@@ -29,6 +30,7 @@ public class PlayerControllerObject : ScriptableObject
                 verticalAxe = defaultVertical + "P1";
                 verticalAxeJoystick = defaultjoystickPrefix + defaultVertical + "P1";
                 dash = defaultDash + "P1";
+                dashJoyStick = defaultjoystickPrefix + defaultDash + "P1";
                 break;
 
             case Controls.P2:
@@ -37,6 +39,7 @@ public class PlayerControllerObject : ScriptableObject
                 verticalAxe = defaultVertical + "P2";
                 verticalAxeJoystick = defaultjoystickPrefix + defaultVertical + "P2";
                 dash = defaultDash + "P2";
+                dashJoyStick = defaultjoystickPrefix +  defaultDash + "P2";
                 break;
 
             case Controls.P3:
@@ -45,6 +48,7 @@ public class PlayerControllerObject : ScriptableObject
                 verticalAxe = defaultVertical + "P3";
                 verticalAxeJoystick = defaultjoystickPrefix + defaultVertical + "P3";
                 dash = defaultDash + "P3";
+                dashJoyStick = defaultjoystickPrefix + defaultDash + "P3";
                 break;
 
             case Controls.P4:
@@ -53,6 +57,7 @@ public class PlayerControllerObject : ScriptableObject
                 verticalAxe = defaultVertical + "P4";
                 verticalAxeJoystick = defaultjoystickPrefix + defaultVertical + "P4";
                 dash = defaultDash + "P4";
+                dashJoyStick = defaultjoystickPrefix + defaultDash + "P4";
                 break;
         }
     }

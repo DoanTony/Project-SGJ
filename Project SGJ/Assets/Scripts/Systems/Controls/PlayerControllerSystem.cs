@@ -52,15 +52,15 @@ public class PlayerControllerSystem : ComponentSystem {
         {
             if (!_controllerModel.Component.isReverseDash)
             {
-                if (Input.GetAxisRaw(horizontalAxe) != 0 || Input.GetAxisRaw(horizontalAxe) != 0)
+                if (Input.GetAxisRaw(horizontalAxe) != 0 || Input.GetAxisRaw(verticalAxe) != 0)
                 {
                     xAxis = Input.GetAxisRaw(horizontalAxe);
                     yAxis = Input.GetAxisRaw(verticalAxe);
                 }
-                else if (Input.GetAxisRaw(horizontalAxeJoystick) != 0 || Input.GetAxisRaw(verticalAxeJoystick) != 0)
+                else if (Mathf.Round(Input.GetAxisRaw(horizontalAxeJoystick)) != 0 || Mathf.Round(Input.GetAxisRaw(verticalAxeJoystick)) != 0)
                 {
-                    xAxis = -Input.GetAxisRaw(horizontalAxeJoystick);
-                    yAxis = -Input.GetAxisRaw(verticalAxeJoystick); 
+                    xAxis = Input.GetAxisRaw(horizontalAxeJoystick);
+                    yAxis = Input.GetAxisRaw(verticalAxeJoystick); 
                 }
             }
              if ( xAxis == 0 && yAxis == 0 && _controllerModel.Component.isStun)
@@ -104,15 +104,15 @@ public class PlayerControllerSystem : ComponentSystem {
         string verticalAxeJoystick = _controllerModel.Component.controller.verticalAxeJoystick;
         float xAxis = 0;
         float yAxis = 0;
-        if (Input.GetAxisRaw(horizontalAxe) != 0 || Input.GetAxisRaw(horizontalAxe) != 0)
+        if (Input.GetAxisRaw(horizontalAxe) != 0 || Input.GetAxisRaw(verticalAxe) != 0)
         {
             xAxis = Input.GetAxisRaw(horizontalAxe) * controller.movementSpeed * Time.deltaTime;
             yAxis = Input.GetAxisRaw(verticalAxe) * controller.movementSpeed * Time.deltaTime;
         }
-        else if (Input.GetAxisRaw(horizontalAxeJoystick) != 0 || Input.GetAxisRaw(verticalAxeJoystick) != 0)
+        else if (Mathf.Round(Input.GetAxisRaw(horizontalAxeJoystick)) != 0 || Mathf.Round(Input.GetAxisRaw(verticalAxeJoystick)) != 0)
         {
-            xAxis = -Input.GetAxisRaw(horizontalAxeJoystick) * controller.movementSpeed * Time.deltaTime;
-            yAxis = -Input.GetAxisRaw(verticalAxeJoystick) * controller.movementSpeed * Time.deltaTime;
+            xAxis = Input.GetAxisRaw(horizontalAxeJoystick) * controller.movementSpeed * Time.deltaTime;
+            yAxis = Input.GetAxisRaw(verticalAxeJoystick) * controller.movementSpeed * Time.deltaTime;
         }
        
         Vector2 movements = new Vector2(xAxis, yAxis);

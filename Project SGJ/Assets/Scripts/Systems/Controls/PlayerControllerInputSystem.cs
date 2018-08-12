@@ -25,7 +25,7 @@ public class PlayerControllerInputSystem : ComponentSystem
 
     private void DashInputs(PlayerControllerComponent _controller)
     {
-        if (Input.GetButtonDown(_controller.controller.dash) && !_controller.isStun && !_controller.isReverseDash)
+        if ((Input.GetButtonDown(_controller.controller.dash) || Input.GetButtonDown(_controller.controller.dashJoyStick)) && !_controller.isStun && !_controller.isReverseDash)
         {
             _controller.isDashing = true;
             Debug.Log( _controller.isDashing);
@@ -34,10 +34,12 @@ public class PlayerControllerInputSystem : ComponentSystem
 
     private void MoveInputs(PlayerControllerComponent _controller)
     {
+        Debug.Log(Input.GetAxisRaw(_controller.controller.horizontalAxeJoystick));
+
         if (Input.GetAxisRaw(_controller.controller.horizontalAxe) != 0 ||
-            Input.GetAxisRaw(_controller.controller.horizontalAxeJoystick) != 0 || 
+            Mathf.Round(Input.GetAxisRaw(_controller.controller.horizontalAxeJoystick)) != 0 || 
             Input.GetAxisRaw(_controller.controller.verticalAxe) != 0 ||
-            Input.GetAxisRaw(_controller.controller.verticalAxeJoystick) != 0 )
+            Mathf.Round(Input.GetAxisRaw(_controller.controller.verticalAxeJoystick)) != 0 )
         {
             _controller.isMoving = true;
         }
