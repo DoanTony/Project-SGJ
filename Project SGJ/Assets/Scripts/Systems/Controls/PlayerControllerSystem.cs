@@ -31,11 +31,13 @@ public class PlayerControllerSystem : ComponentSystem {
 
     private void Dash(PlayerControllerModel _controllerModel)
     {
+        string horizontalAxe = _controllerModel.Component.controller.horizontalAxe;
+        string verticalAxe = _controllerModel.Component.controller.verticalAxe;
         if (_controllerModel.Component.isDashing && !_controllerModel.Component.isDashOnCooldown)
         {
-          _controllerModel.Component.dashDrag = _controllerModel.Component.controller.dashDrag;
-          Vector2 dashDirection = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-           _controllerModel.Rigidbody.velocity += dashDirection * _controllerModel.Component.controller.dashForce;
+          _controllerModel.Component.dashDrag = _controllerModel.Component.controllerProps.dashDrag;
+          Vector2 dashDirection = new Vector3(Input.GetAxisRaw(horizontalAxe), Input.GetAxisRaw(verticalAxe));
+           _controllerModel.Rigidbody.velocity += dashDirection * _controllerModel.Component.controllerProps.dashForce;
             _controllerModel.Component.CooldownDashReset();
         }
         _controllerModel.Rigidbody.drag = _controllerModel.Component.dashDrag;
@@ -44,10 +46,12 @@ public class PlayerControllerSystem : ComponentSystem {
 
     private void Move(PlayerControllerModel _controllerModel)
     {
-        PlayerControllerObject controller = _controllerModel.Component.controller;
-        float xMovement = Input.GetAxisRaw("Horizontal") * controller.movementSpeed * Time.deltaTime;
-        float yMovement = Input.GetAxisRaw("Vertical") * controller.movementSpeed * Time.deltaTime;
-        Vector2 movements = new Vector2(xMovement, yMovement);
+        PlayerControllerPropsObject controller = _controllerModel.Component.controllerProps;
+        string horizontalAxe = _controllerModel.Component.controller.horizontalAxe;
+        string verticalAxe = _controllerModel.Component.controller.verticalAxe;
+        float xAxis = Input.GetAxisRaw(horizontalAxe) * controller.movementSpeed * Time.deltaTime;
+        float yAxis = Input.GetAxisRaw(verticalAxe) * controller.movementSpeed * Time.deltaTime;
+        Vector2 movements = new Vector2(xAxis, yAxis);
         _controllerModel.Rigidbody.AddForce(movements, ForceMode2D.Impulse);
     }
 
