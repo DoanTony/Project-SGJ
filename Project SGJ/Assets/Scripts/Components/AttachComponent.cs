@@ -3,22 +3,34 @@ using System.Collections;
 
 public class AttachComponent : MonoBehaviour
 {
-
     private Rigidbody2D rb;
+    private bool canPickUp;
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        canPickUp = false;
+        rb = transform.GetComponent<Rigidbody2D>();
+        Collider2D col = GameObject.FindGameObjectWithTag("Player").GetComponent<Collider2D>();
+        Physics2D.IgnoreCollision(col, this.GetComponent<Collider2D>());
+        StartCoroutine(DelayPickUp());
     }
 
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if(collision.transform.tag == "Player")
+        if (canPickUp)
         {
-            rb.velocity = Vector2.zero;
-            rb.simulated = false;
-            this.transform.parent = collision.transform;
+            if (other.tag == "Player")
+            {
+                other.GetComponent<CharacterComponent>().hasTransporter = true;
+                Destroy(this.gameObject);
+            }
         }
     }
+
+    private IEnumerator DelayPickUp()
+    {
+        yield return new WaitForSeconds(1.5f);
+        canPickUp = true;
+    }
 }
+

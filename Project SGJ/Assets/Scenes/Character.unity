@@ -114,23 +114,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &1295671969 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1697552963809410, guid: 9e72dd358ccb30d4fa27a4f8c41ec846,
-    type: 2}
-  m_PrefabInternal: {fileID: 1952987713}
---- !u!114 &1295671970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1295671969}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 236f84b211464574386cd57264e9a50c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1001 &1952987713
+--- !u!1001 &952953035
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -169,25 +153,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 212670209559273824, guid: 9e72dd358ccb30d4fa27a4f8c41ec846,
+    - target: {fileID: 114185154779655114, guid: 9e72dd358ccb30d4fa27a4f8c41ec846,
         type: 2}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 212670209559273824, guid: 9e72dd358ccb30d4fa27a4f8c41ec846,
+      propertyPath: characterObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 350e4a9560753f546a7a7bff7123c79c,
         type: 2}
-      propertyPath: m_Color.g
-      value: 0.23965836
-      objectReference: {fileID: 0}
-    - target: {fileID: 212670209559273824, guid: 9e72dd358ccb30d4fa27a4f8c41ec846,
-        type: 2}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1697552963809410, guid: 9e72dd358ccb30d4fa27a4f8c41ec846, type: 2}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e72dd358ccb30d4fa27a4f8c41ec846, type: 2}
   m_IsPrefabAsset: 0
