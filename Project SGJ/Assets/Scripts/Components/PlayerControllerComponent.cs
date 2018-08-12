@@ -20,8 +20,8 @@ public class PlayerControllerComponent : MonoBehaviour {
     [HideInInspector] public float yAxis;
     [HideInInspector] public bool dash;
     [HideInInspector] public bool isMoving;
-    public bool isDashing;
-    public bool isDashOnCooldown;
+    [HideInInspector] public bool isDashing;
+    [HideInInspector] public bool isDashOnCooldown;
     [HideInInspector] public float dashDrag = 1f;
     #endregion
 
