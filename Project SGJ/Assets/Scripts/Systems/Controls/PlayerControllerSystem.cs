@@ -59,8 +59,8 @@ public class PlayerControllerSystem : ComponentSystem {
                 }
                 else if (Input.GetAxisRaw(horizontalAxeJoystick) != 0 || Input.GetAxisRaw(verticalAxeJoystick) != 0)
                 {
-                    xAxis = Input.GetAxisRaw(horizontalAxeJoystick);
-                    yAxis = Input.GetAxisRaw(verticalAxeJoystick); 
+                    xAxis = -Input.GetAxisRaw(horizontalAxeJoystick);
+                    yAxis = -Input.GetAxisRaw(verticalAxeJoystick); 
                 }
             }
              if ( xAxis == 0 && yAxis == 0 && _controllerModel.Component.isStun)
@@ -111,8 +111,8 @@ public class PlayerControllerSystem : ComponentSystem {
         }
         else if (Input.GetAxisRaw(horizontalAxeJoystick) != 0 || Input.GetAxisRaw(verticalAxeJoystick) != 0)
         {
-            xAxis = Input.GetAxisRaw(horizontalAxeJoystick) * controller.movementSpeed * Time.deltaTime;
-            yAxis = Input.GetAxisRaw(verticalAxeJoystick) * controller.movementSpeed * Time.deltaTime;
+            xAxis = -Input.GetAxisRaw(horizontalAxeJoystick) * controller.movementSpeed * Time.deltaTime;
+            yAxis = -Input.GetAxisRaw(verticalAxeJoystick) * controller.movementSpeed * Time.deltaTime;
         }
        
         Vector2 movements = new Vector2(xAxis, yAxis);
