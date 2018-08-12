@@ -60,8 +60,6 @@ public class CharacterComponent : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        Debug.Log(collision.transform.tag);
-
         if (collision.transform.tag == "PlayerTrigger")
         {
             PlayerControllerComponent otherPcc = collision.transform.parent.GetComponent<PlayerControllerComponent>();

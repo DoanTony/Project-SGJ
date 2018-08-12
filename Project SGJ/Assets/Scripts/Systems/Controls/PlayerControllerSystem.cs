@@ -30,6 +30,8 @@ public class PlayerControllerSystem : ComponentSystem {
     {
         string horizontalAxe = _controllerModel.Component.controller.horizontalAxe;
         string verticalAxe = _controllerModel.Component.controller.verticalAxe;
+        string horizontalAxeJoystick = _controllerModel.Component.controller.horizontalAxeJoystick;
+        string verticalAxeJoystick = _controllerModel.Component.controller.verticalAxeJoystick;
         float xAxis = 0;
         float yAxis = 0;
         float xAxisTemp = 0;
@@ -50,8 +52,16 @@ public class PlayerControllerSystem : ComponentSystem {
         {
             if (!_controllerModel.Component.isReverseDash)
             {
-                 xAxis = Input.GetAxisRaw(horizontalAxe);
-                 yAxis = Input.GetAxisRaw(verticalAxe);
+                if (Input.GetAxisRaw(horizontalAxe) != 0 || Input.GetAxisRaw(horizontalAxe) != 0)
+                {
+                    xAxis = Input.GetAxisRaw(horizontalAxe);
+                    yAxis = Input.GetAxisRaw(verticalAxe);
+                }
+                else if (Input.GetAxisRaw(horizontalAxeJoystick) != 0 || Input.GetAxisRaw(verticalAxeJoystick) != 0)
+                {
+                    xAxis = Input.GetAxisRaw(horizontalAxeJoystick);
+                    yAxis = Input.GetAxisRaw(verticalAxeJoystick); 
+                }
             }
              if ( xAxis == 0 && yAxis == 0 && _controllerModel.Component.isStun)
             {
@@ -88,12 +98,25 @@ public class PlayerControllerSystem : ComponentSystem {
     private void Move(PlayerControllerModel _controllerModel)
     {
         PlayerControllerPropsObject controller = _controllerModel.Component.controllerProps;
-            string horizontalAxe = _controllerModel.Component.controller.horizontalAxe;
-            string verticalAxe = _controllerModel.Component.controller.verticalAxe;
-            float xAxis = Input.GetAxisRaw(horizontalAxe) * controller.movementSpeed * Time.deltaTime;
-            float yAxis = Input.GetAxisRaw(verticalAxe) * controller.movementSpeed * Time.deltaTime;
-            Vector2 movements = new Vector2(xAxis, yAxis);
-            _controllerModel.Component.currentVelocityDir = movements.normalized;
+        string horizontalAxe = _controllerModel.Component.controller.horizontalAxe;
+        string verticalAxe = _controllerModel.Component.controller.verticalAxe;
+        string horizontalAxeJoystick = _controllerModel.Component.controller.horizontalAxeJoystick;
+        string verticalAxeJoystick = _controllerModel.Component.controller.verticalAxeJoystick;
+        float xAxis = 0;
+        float yAxis = 0;
+        if (Input.GetAxisRaw(horizontalAxe) != 0 || Input.GetAxisRaw(horizontalAxe) != 0)
+        {
+            xAxis = Input.GetAxisRaw(horizontalAxe) * controller.movementSpeed * Time.deltaTime;
+            yAxis = Input.GetAxisRaw(verticalAxe) * controller.movementSpeed * Time.deltaTime;
+        }
+        else if (Input.GetAxisRaw(horizontalAxeJoystick) != 0 || Input.GetAxisRaw(verticalAxeJoystick) != 0)
+        {
+            xAxis = Input.GetAxisRaw(horizontalAxeJoystick) * controller.movementSpeed * Time.deltaTime;
+            yAxis = Input.GetAxisRaw(verticalAxeJoystick) * controller.movementSpeed * Time.deltaTime;
+        }
+       
+        Vector2 movements = new Vector2(xAxis, yAxis);
+        _controllerModel.Component.currentVelocityDir = movements.normalized;
         if (!_controllerModel.Component.isStun)
         {
             _controllerModel.Rigidbody.AddForce(movements, ForceMode2D.Impulse);
