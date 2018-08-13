@@ -11,6 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f455ba1b38134d43a088642752a6a7f, type: 3}
   m_Name: RUSSIA_Character
   m_EditorClassIdentifier: 
+  characterName: Dimitri Dimanov
   characterPrefab: {fileID: 1018545275799042, guid: e27bbc6d8cfa2ed42809bb36c166ede5,
     type: 2}
   transmiterPrefab: {fileID: 1044654385856836, guid: a420361216fdcc9489d28bcb256977ac,

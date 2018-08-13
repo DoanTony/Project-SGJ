@@ -11,6 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f455ba1b38134d43a088642752a6a7f, type: 3}
   m_Name: USA_Character
   m_EditorClassIdentifier: 
+  characterName: Jason Jet
   characterPrefab: {fileID: 1925200839280824, guid: 77685e036b203c241bada1ab4301e34b,
     type: 2}
   transmiterPrefab: {fileID: 1044654385856836, guid: a420361216fdcc9489d28bcb256977ac,

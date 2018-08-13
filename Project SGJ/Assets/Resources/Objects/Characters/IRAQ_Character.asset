@@ -11,6 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f455ba1b38134d43a088642752a6a7f, type: 3}
   m_Name: IRAQ_Character
   m_EditorClassIdentifier: 
+  characterName: Hayder Hassani
   characterPrefab: {fileID: 1057227953385270, guid: ea1dee1e95f37674db3c98f44026005d,
     type: 2}
   transmiterPrefab: {fileID: 1044654385856836, guid: a420361216fdcc9489d28bcb256977ac,
