@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Resources/UI.unity
     guid: daabf4088985c35468f82a9cdb61ba29
+  - enabled: 1
+    path: Assets/Scenes/Resources/Prototypes/PrototypeV1/Staging.unity
+    guid: 6d693a88bf7af174bad7141cf741d372
   m_configObjects: {}

@@ -11,6 +11,7 @@ public class AudioBank : ScriptableObject {
     public AudioClip stealSound;
     public AudioClip dropSound;
     public AudioClip dashSound;
+    public AudioClip pickupSound;
 
     private void OnEnable()
     {
@@ -26,9 +27,9 @@ public class AudioBank : ScriptableObject {
 
     public void PlaySound(AudioClip clip)
     {
-        Instantiate(source);
-        source.volume = 0.3f;
-        source.clip = clip;
-        source.Play();
+        AudioSource newSource = Instantiate(source);
+        newSource.volume = 0.3f;
+        newSource.clip = clip;
+        newSource.Play();
     }
 }

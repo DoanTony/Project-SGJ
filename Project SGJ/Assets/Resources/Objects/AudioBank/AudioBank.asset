@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52c725d31ea223445b562b006c6fc8e6, type: 3}
+  m_Name: AudioBank
+  m_EditorClassIdentifier: 
+  source: {fileID: 82508002797038962, guid: bc781478c4e11b0459b20beff3877cde, type: 2}
+  stealSound: {fileID: 8300000, guid: 78db8ce8ae2b0db4996ce0990999a4bc, type: 3}
+  dropSound: {fileID: 8300000, guid: 4228b92ff4a893f41b982325861879fc, type: 3}
+  dashSound: {fileID: 8300000, guid: 3f1e63527cdc58644adedf694328eb5b, type: 3}
+  pickupSound: {fileID: 8300000, guid: a404f1e9346f3c9469ab2d3fba76cf01, type: 3}

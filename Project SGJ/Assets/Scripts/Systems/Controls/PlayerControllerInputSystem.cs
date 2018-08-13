@@ -14,6 +14,8 @@ public class PlayerControllerInputSystem : ComponentSystem
 
     [Inject] Controllers _Controllers;
 
+
+ 
     protected override void OnUpdate()
     {
         for (int i = 0; i < _Controllers.Length; i++)
@@ -34,7 +36,7 @@ public class PlayerControllerInputSystem : ComponentSystem
         {
             if (!_controller.isDashOnCooldown)
             {
-                AudioBank.Instance.PlaySound(AudioBank.Instance.dashSound);
+               _character.audioBank.PlaySound(_character.audioBank.dashSound);
             }
             _controller.isDashing = true;
             _character.animator.SetTrigger("Dash");

@@ -293,6 +293,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   characterSprite: {fileID: 0}
   dashParticles: {fileID: 0}
+  audioBank: {fileID: 11400000, guid: b19b4858ed852784d803f7fd0b86a098, type: 2}
 --- !u!114 &114809605668547456
 MonoBehaviour:
   m_ObjectHideFlags: 1

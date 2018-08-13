@@ -13,7 +13,7 @@ public class CharacterComponent : MonoBehaviour
     [HideInInspector] public SpriteRenderer characterSprite;
     [HideInInspector] public ParticleSystem dashParticles;
     private bool canTouch = true;
-
+    public AudioBank audioBank;
     private void Start()
     {
         pcc = GetComponent<PlayerControllerComponent>();
@@ -75,6 +75,7 @@ public class CharacterComponent : MonoBehaviour
         {
             if (canTouch)
             {
+                audioBank.PlaySound(audioBank.pickupSound);
                 hasTransporter = true;
                 StartCoroutine(StartProgress());
             }
@@ -98,6 +99,7 @@ public class CharacterComponent : MonoBehaviour
     private IEnumerator DelaySteal(CharacterComponent otherCc, PlayerControllerComponent otherPcc)
     {
         yield return new WaitForSeconds(0.5f);
+        audioBank.PlaySound(audioBank.stealSound);
         hasTransporter = false;
         otherCc.hasTransporter = true;
         pcc.isDashing = true;
@@ -118,6 +120,7 @@ public class CharacterComponent : MonoBehaviour
     {
         if (hasTransporter)
         {
+            audioBank.PlaySound(audioBank.dropSound);
             hasTransporter = false;
             Instantiate(playerObject.selectedCharacter.transmiterPrefab, this.transform.position, Quaternion.Euler(Vector3.zero));
             StopCoroutine(StartProgress());
