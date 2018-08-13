@@ -20,8 +20,11 @@ public class PlayerControllerInputSystem : ComponentSystem
         {
             PlayerControllerComponent controller = _Controllers.PlayerControllerComponent[i];
             CharacterComponent character = _Controllers.CharacterComponent[i]; ;
-            MoveInputs(controller);
-            DashInputs(controller, character); 
+            if (!character.playerObject.stopAll)
+            {
+                MoveInputs(controller);
+                DashInputs(controller, character);
+            }
         }
     }
 

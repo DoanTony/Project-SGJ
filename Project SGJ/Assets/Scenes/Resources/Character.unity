@@ -153,37 +153,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114324541489140732, guid: a62dd64a4ece69242a35768b3878eb9d,
-        type: 2}
-      propertyPath: characterSprite
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4034974300492380, guid: a62dd64a4ece69242a35768b3878eb9d, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 1.31
-      objectReference: {fileID: 0}
-    - target: {fileID: 4034974300492380, guid: a62dd64a4ece69242a35768b3878eb9d, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4034974300492380, guid: a62dd64a4ece69242a35768b3878eb9d, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4034974300492380, guid: a62dd64a4ece69242a35768b3878eb9d, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212740635066940208, guid: a62dd64a4ece69242a35768b3878eb9d,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 212740635066940208, guid: a62dd64a4ece69242a35768b3878eb9d,
-        type: 2}
-      propertyPath: m_WasSpriteAssigned
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a62dd64a4ece69242a35768b3878eb9d, type: 2}
   m_IsPrefabAsset: 0

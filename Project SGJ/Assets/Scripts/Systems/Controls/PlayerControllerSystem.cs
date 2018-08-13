@@ -23,8 +23,16 @@ public class PlayerControllerSystem : ComponentSystem {
                 _Controllers.CharacterComponent[i], 
                 _Controllers.Transform[i],
                 _Controllers.Rigidbody[i]);
-            Move(controllerModel);
-            Dash(controllerModel);
+            if (!controllerModel.CharacterComponent.playerObject.stopAll)
+            {
+                Move(controllerModel);
+                Dash(controllerModel);
+            }
+            else
+            {
+                controllerModel.Rigidbody.velocity = Vector2.zero;
+            }
+          
         }
     }
 

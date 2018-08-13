@@ -4,6 +4,7 @@ using UnityEditor;
 [CreateAssetMenu(menuName = "Character", order = 0)]
 public class CharacterObject : ScriptableObject
 {
+    public string characterName;
     public GameObject characterPrefab;
     public GameObject transmiterPrefab;
     public Sprite transporterSprite;
