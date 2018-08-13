@@ -6,5 +6,8 @@ public class CharacterObject : ScriptableObject
 {
     public GameObject characterPrefab;
     public GameObject transmiterPrefab;
+    public Sprite transporterSprite;
     public ParticleSystem particle;
+    public Sprite flag;
+
 }

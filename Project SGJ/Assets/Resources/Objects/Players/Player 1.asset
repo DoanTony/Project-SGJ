@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Name: Player 1
   m_EditorClassIdentifier: 
   selectedCharacter: {fileID: 11400000, guid: 74168af369dddfd4fbfb77d2b1cb7fa1, type: 2}
+  progressBar: {fileID: 11400000, guid: 5784a1231dba4314e9653722ebb03adc, type: 2}

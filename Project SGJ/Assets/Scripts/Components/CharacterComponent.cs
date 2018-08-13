@@ -22,6 +22,7 @@ public class CharacterComponent : MonoBehaviour
         GameObject particle = Instantiate(playerObject.selectedCharacter.particle.gameObject, this.transform);
         dashParticles = particle.GetComponent<ParticleSystem>();
         dashParticles.Stop();
+        transporter.sprite = playerObject.selectedCharacter.transporterSprite;
     }
 
   
@@ -62,8 +63,13 @@ public class CharacterComponent : MonoBehaviour
                     pcc.previousVelocityDir = otherPcc.previousVelocityDir;
                     StartCoroutine(DelaySteal(otherCc, otherPcc));
                     StartCoroutine(DelayEnableCollision(otherCol, selfCollision, otherCc));
+                    StopCoroutine(StartProgress());
                 }
             }
+        }
+        else if(collision.transform.tag == "Transporter")
+        {
+            StartCoroutine(StartProgress());
         }
     }
 
@@ -84,6 +90,8 @@ public class CharacterComponent : MonoBehaviour
     private IEnumerator DelaySteal(CharacterComponent otherCc, PlayerControllerComponent otherPcc)
     {
         yield return new WaitForSeconds(0.5f);
+        StartCoroutine(otherCc.StartProgress());
+        StopCoroutine(StartProgress());
         hasTransporter = false;
         otherCc.hasTransporter = true;
         pcc.isDashing = true;
@@ -102,6 +110,19 @@ public class CharacterComponent : MonoBehaviour
     {
         Instantiate(playerObject.selectedCharacter.transmiterPrefab, this.transform.position, Quaternion.Euler(Vector3.zero));
         hasTransporter = false;
+        StopCoroutine(StartProgress());
+    }
+
+    public IEnumerator StartProgress()
+    {
+        while (hasTransporter)
+        {
+            yield return new WaitForSeconds(2);
+            if (hasTransporter)
+            {
+                playerObject.progressBar.progress += 0.05f;
+            }
+        }
     }
 
 }

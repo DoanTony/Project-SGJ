@@ -11,6 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f455ba1b38134d43a088642752a6a7f, type: 3}
   m_Name: IRAQ_Character
   m_EditorClassIdentifier: 
-  characterPrefab: {fileID: 0}
+  characterPrefab: {fileID: 1057227953385270, guid: ea1dee1e95f37674db3c98f44026005d,
+    type: 2}
   transmiterPrefab: {fileID: 1044654385856836, guid: a420361216fdcc9489d28bcb256977ac,
     type: 2}
+  transporterSprite: {fileID: 21300006, guid: b9d6298c6342900458e620a5989ff642, type: 3}
+  particle: {fileID: 198630382327610094, guid: e26624a9c9be9ed41b45cc10299cd685, type: 2}
+  flag: {fileID: 21300000, guid: a055ee25ef2b80d428fd8620a62c14ee, type: 3}

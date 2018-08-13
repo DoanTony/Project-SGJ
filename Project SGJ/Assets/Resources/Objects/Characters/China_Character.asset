@@ -11,6 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f455ba1b38134d43a088642752a6a7f, type: 3}
   m_Name: China_Character
   m_EditorClassIdentifier: 
-  characterPrefab: {fileID: 0}
+  characterPrefab: {fileID: 1887087915108944, guid: 79296bf4238c6144a9ddf7a2fab7b2ac,
+    type: 2}
   transmiterPrefab: {fileID: 1044654385856836, guid: a420361216fdcc9489d28bcb256977ac,
     type: 2}
+  transporterSprite: {fileID: 21300004, guid: b9d6298c6342900458e620a5989ff642, type: 3}
+  particle: {fileID: 198438758567451542, guid: f5290ce0045fb794ab5ac7b6009a3398, type: 2}
+  flag: {fileID: 21300000, guid: 7398b64a4b9fdfc4aa315bd1cd0ffdc5, type: 3}

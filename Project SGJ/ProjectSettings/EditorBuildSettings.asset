@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Resources/Prototypes/PrototypeV1/SubScenes/Technical_Level_Design_PrototypeV1.unity
     guid: 1ee1361b17a006a49a5206e5fb90c9c0
+  - enabled: 1
+    path: Assets/Scenes/Resources/UI.unity
+    guid: daabf4088985c35468f82a9cdb61ba29
   m_configObjects: {}

@@ -114,7 +114,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &160528764
+--- !u!1001 &11814668
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -123,11 +123,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4133148495047214, guid: a62dd64a4ece69242a35768b3878eb9d, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -5.8
+      value: 4.83
       objectReference: {fileID: 0}
     - target: {fileID: 4133148495047214, guid: a62dd64a4ece69242a35768b3878eb9d, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: -3.84
       objectReference: {fileID: 0}
     - target: {fileID: 4133148495047214, guid: a62dd64a4ece69242a35768b3878eb9d, type: 2}
       propertyPath: m_LocalPosition.z
@@ -155,12 +155,33 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114324541489140732, guid: a62dd64a4ece69242a35768b3878eb9d,
         type: 2}
-      propertyPath: playerObject
+      propertyPath: characterSprite
       value: 
-      objectReference: {fileID: 11400000, guid: 575b2c5f959c6dd45909e7ee4d98a9cc,
+      objectReference: {fileID: 0}
+    - target: {fileID: 4034974300492380, guid: a62dd64a4ece69242a35768b3878eb9d, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 4034974300492380, guid: a62dd64a4ece69242a35768b3878eb9d, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4034974300492380, guid: a62dd64a4ece69242a35768b3878eb9d, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4034974300492380, guid: a62dd64a4ece69242a35768b3878eb9d, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212740635066940208, guid: a62dd64a4ece69242a35768b3878eb9d,
         type: 2}
-    - target: {fileID: 1005464499622046, guid: a62dd64a4ece69242a35768b3878eb9d, type: 2}
-      propertyPath: m_IsActive
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 212740635066940208, guid: a62dd64a4ece69242a35768b3878eb9d,
+        type: 2}
+      propertyPath: m_WasSpriteAssigned
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

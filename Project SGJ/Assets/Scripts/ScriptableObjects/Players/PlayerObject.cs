@@ -5,6 +5,7 @@ using UnityEditor;
 public class PlayerObject : ScriptableObject
 {
     public CharacterObject selectedCharacter;
+    public ProgressBar progressBar;
 
     public void SetCharacter(CharacterObject _character)
     {

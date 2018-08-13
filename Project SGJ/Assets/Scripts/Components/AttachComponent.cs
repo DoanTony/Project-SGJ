@@ -17,9 +17,9 @@ public class AttachComponent : MonoBehaviour
     {
         if (canPickUp)
         {
-            if (other.tag == "Player")
+            if (other.tag == "PlayerTrigger")
             {
-                other.GetComponent<CharacterComponent>().hasTransporter = true;
+                other.transform.parent.GetComponent<CharacterComponent>().hasTransporter = true;
                 Destroy(this.gameObject);
             }
         }

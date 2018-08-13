@@ -11,4 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06d6bf0b49df68741a7c270d692820aa, type: 3}
   m_Name: Player 2
   m_EditorClassIdentifier: 
-  selectedCharacter: {fileID: 0}
+  selectedCharacter: {fileID: 11400000, guid: 9b0ecf1136e34ee4f9721ffc890c405f, type: 2}
+  progressBar: {fileID: 11400000, guid: 9f9c5a2c56542dd47872c88a998c7983, type: 2}
