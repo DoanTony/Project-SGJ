@@ -193,6 +193,7 @@ MonoBehaviour:
   transporter: {fileID: 212613806117009930}
   hasTransporter: 0
   selfCollision: {fileID: 58862069213472640}
+  selfTrigger: {fileID: 58397388403478994}
   isStunSteal: 1
   animator: {fileID: 0}
   characterSprite: {fileID: 0}

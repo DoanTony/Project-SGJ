@@ -12,6 +12,7 @@ public class CharacterComponent : MonoBehaviour
     [HideInInspector] public Animator animator;
     [HideInInspector] public SpriteRenderer characterSprite;
     [HideInInspector] public ParticleSystem dashParticles;
+    private bool canTouch = true;
 
     private void Start()
     {
@@ -32,6 +33,7 @@ public class CharacterComponent : MonoBehaviour
         {
             if (hasTransporter)
             {
+                canTouch = false;
                 DropTransporter();
             } 
         }
@@ -46,9 +48,11 @@ public class CharacterComponent : MonoBehaviour
             Collider2D otherCol = collision.transform.parent.GetComponent<Collider2D>();
             if (hasTransporter)
             {
-                if (otherPcc.isDashing && pcc.isDashing && !isStunSteal)
+                if (otherPcc.isDashing && pcc.isDashing)
                 {
+                    canTouch = false;
                     DropTransporter();
+                    otherCc.DropTransporter();
                 }
                 else if(otherPcc.isDashing && !pcc.isDashing)
                 {
@@ -67,9 +71,13 @@ public class CharacterComponent : MonoBehaviour
                 }
             }
         }
-        else if(collision.transform.tag == "Transporter")
+        if(collision.transform.tag == "Transporter")
         {
-            StartCoroutine(StartProgress());
+            if (canTouch)
+            {
+                hasTransporter = true;
+                StartCoroutine(StartProgress());
+            }
         }
     }
 
@@ -90,12 +98,12 @@ public class CharacterComponent : MonoBehaviour
     private IEnumerator DelaySteal(CharacterComponent otherCc, PlayerControllerComponent otherPcc)
     {
         yield return new WaitForSeconds(0.5f);
-        StartCoroutine(otherCc.StartProgress());
-        StopCoroutine(StartProgress());
         hasTransporter = false;
         otherCc.hasTransporter = true;
         pcc.isDashing = true;
         otherPcc.isDashing = true;
+        StartCoroutine(otherCc.StartProgress());
+        StopCoroutine(StartProgress());
     }
 
     private IEnumerator DelayEnableCollision(Collider2D col1, Collider2D col2, CharacterComponent otherCc)
@@ -106,11 +114,21 @@ public class CharacterComponent : MonoBehaviour
         otherCc.isStunSteal = true;
     }
 
-    private void DropTransporter()
+    public void DropTransporter()
     {
-        Instantiate(playerObject.selectedCharacter.transmiterPrefab, this.transform.position, Quaternion.Euler(Vector3.zero));
-        hasTransporter = false;
-        StopCoroutine(StartProgress());
+        if (hasTransporter)
+        {
+            hasTransporter = false;
+            Instantiate(playerObject.selectedCharacter.transmiterPrefab, this.transform.position, Quaternion.Euler(Vector3.zero));
+            StopCoroutine(StartProgress());
+            StartCoroutine(DelayCanTouchAgain());
+        }
+    }
+
+    private IEnumerator DelayCanTouchAgain()
+    {
+        yield return new WaitForSeconds(0.5f);
+        canTouch = true;
     }
 
     public IEnumerator StartProgress()
