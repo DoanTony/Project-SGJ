@@ -32,6 +32,10 @@ public class PlayerControllerInputSystem : ComponentSystem
     {
         if ((Input.GetButtonDown(_controller.controller.dash) || Input.GetButtonDown(_controller.controller.dashJoyStick)) && !_controller.isStun && !_controller.isReverseDash)
         {
+            if (!_controller.isDashOnCooldown)
+            {
+                AudioBank.Instance.PlaySound(AudioBank.Instance.dashSound);
+            }
             _controller.isDashing = true;
             _character.animator.SetTrigger("Dash");
             _character.dashParticles.Play();
