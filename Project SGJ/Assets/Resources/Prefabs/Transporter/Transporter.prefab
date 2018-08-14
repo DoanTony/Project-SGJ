@@ -97,7 +97,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1044654385856836}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 4.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4199527962478308}
@@ -196,6 +196,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floatingObject: {fileID: 11400000, guid: 68476bfc49f1ef14c800fde9fe26765f, type: 2}
+  collision: {fileID: 58369479357020926}
+  trigger: {fileID: 58011157697179014}
 --- !u!114 &114501318736770970
 MonoBehaviour:
   m_ObjectHideFlags: 1

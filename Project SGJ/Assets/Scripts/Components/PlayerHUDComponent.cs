@@ -9,6 +9,7 @@ public class PlayerHUDComponent : MonoBehaviour {
     public Image flag;
     public Slider progressBarHUD;
     public ProgressBar progressBar;
+    public Text percentValue;
 
 
 	void Start () {
@@ -17,5 +18,6 @@ public class PlayerHUDComponent : MonoBehaviour {
 	
 	void Update () {
         progressBarHUD.value = progressBar.progress;
+        percentValue.text = (progressBar.progress * 100).ToString("0");
     }
 }

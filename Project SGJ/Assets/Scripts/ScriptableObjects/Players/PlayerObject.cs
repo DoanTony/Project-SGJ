@@ -8,6 +8,11 @@ public class PlayerObject : ScriptableObject
     public ProgressBar progressBar;
     [HideInInspector] public bool stopAll = false;
 
+    public CharacterObject USAChar;
+    public CharacterObject RussiaChar;
+    public CharacterObject IraqChar;
+    public CharacterObject ChinaChar;
+
     public void SetCharacter(CharacterObject _character)
     {
         selectedCharacter = _character;
@@ -26,5 +31,22 @@ public class PlayerObject : ScriptableObject
     private void OnDestroy()
     {
         stopAll = false;
+    }
+
+    public void SetUSA()
+    {
+        selectedCharacter = USAChar;
+    }
+    public void SetRussia()
+    {
+        selectedCharacter = RussiaChar;
+    }
+    public void SetChina()
+    {
+        selectedCharacter = ChinaChar;
+    }
+    public void SetIraq()
+    {
+        selectedCharacter = IraqChar;
     }
 }

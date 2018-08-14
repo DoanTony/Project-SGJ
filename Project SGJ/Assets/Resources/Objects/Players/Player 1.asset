@@ -13,3 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedCharacter: {fileID: 11400000, guid: 74168af369dddfd4fbfb77d2b1cb7fa1, type: 2}
   progressBar: {fileID: 11400000, guid: 5784a1231dba4314e9653722ebb03adc, type: 2}
+  stopAll: 0
+  USAChar: {fileID: 11400000, guid: 74168af369dddfd4fbfb77d2b1cb7fa1, type: 2}
+  RussiaChar: {fileID: 11400000, guid: d86a040a32e185e4ebf80d6439404ef8, type: 2}
+  IraqChar: {fileID: 11400000, guid: 28e7c27674f7da74e82e0afdd35f30bf, type: 2}
+  ChinaChar: {fileID: 11400000, guid: 9b0ecf1136e34ee4f9721ffc890c405f, type: 2}

@@ -3,11 +3,21 @@ using System.Collections;
 
 public class AttachComponent : MonoBehaviour
 {
+    public static AttachComponent Instance;
     private Rigidbody2D rb;
     private bool canPickUp;
 
+    private void Awake()
+    {
+        Instance = this;
+    }
     private void Start()
     {
+        if (FindObjectOfType<AttachComponent>() != Instance)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
         canPickUp = false;
         rb = transform.GetComponent<Rigidbody2D>();
         StartCoroutine(DelayPickUp());

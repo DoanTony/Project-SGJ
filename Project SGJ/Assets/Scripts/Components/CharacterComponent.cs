@@ -14,6 +14,7 @@ public class CharacterComponent : MonoBehaviour
     [HideInInspector] public ParticleSystem dashParticles;
     private bool canTouch = true;
     public AudioBank audioBank;
+    public bool canSteal;
     private void Start()
     {
         pcc = GetComponent<PlayerControllerComponent>();
@@ -24,6 +25,7 @@ public class CharacterComponent : MonoBehaviour
         dashParticles = particle.GetComponent<ParticleSystem>();
         dashParticles.Stop();
         transporter.sprite = playerObject.selectedCharacter.transporterSprite;
+        canSteal = true;
     }
 
   
@@ -54,7 +56,7 @@ public class CharacterComponent : MonoBehaviour
                     DropTransporter();
                     otherCc.DropTransporter();
                 }
-                else if(otherPcc.isDashing && !pcc.isDashing)
+                else if(otherPcc.isDashing && otherCc.canSteal && !pcc.isDashing)
                 {
                     Physics2D.IgnoreCollision(otherCol, selfCollision, true);
                     pcc.isStun = true;
@@ -77,6 +79,11 @@ public class CharacterComponent : MonoBehaviour
             {
                 audioBank.PlaySound(audioBank.pickupSound);
                 hasTransporter = true;
+                if (FindObjectOfType<AttachComponent>())
+                {
+                    Destroy(FindObjectOfType<AttachComponent>().gameObject);
+                }
+                StopCoroutine(StartProgress());
                 StartCoroutine(StartProgress());
             }
         }
@@ -104,8 +111,17 @@ public class CharacterComponent : MonoBehaviour
         otherCc.hasTransporter = true;
         pcc.isDashing = true;
         otherPcc.isDashing = true;
+        StopCoroutine(otherCc.StartProgress());
+        StartCoroutine(CanStealAgain(otherCc));
         StartCoroutine(otherCc.StartProgress());
         StopCoroutine(StartProgress());
+    }
+    
+    private IEnumerator CanStealAgain(CharacterComponent otherCc)
+    {
+        yield return new WaitForSeconds(0.5f);
+        otherCc.canSteal = false;
+        canSteal = true;
     }
 
     private IEnumerator DelayEnableCollision(Collider2D col1, Collider2D col2, CharacterComponent otherCc)
@@ -122,6 +138,7 @@ public class CharacterComponent : MonoBehaviour
         {
             audioBank.PlaySound(audioBank.dropSound);
             hasTransporter = false;
+            canSteal = true;
             Instantiate(playerObject.selectedCharacter.transmiterPrefab, this.transform.position, Quaternion.Euler(Vector3.zero));
             StopCoroutine(StartProgress());
             StartCoroutine(DelayCanTouchAgain());

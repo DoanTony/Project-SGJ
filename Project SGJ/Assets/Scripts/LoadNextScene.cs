@@ -17,7 +17,7 @@ public class LoadNextScene : MonoBehaviour {
     void Update () {
         if (canSkip)
         {
-            if (Input.anyKey)
+            if (Input.anyKey || Input.GetButtonDown("J_Dash_P1") || Input.GetButtonDown("J_Dash_P2"))
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
